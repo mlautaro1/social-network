@@ -1,0 +1,21 @@
+<%- include('partials/header') -%>
+    <section class="m-1 flex justify-center relative">
+        <div class="form-container absolute top-14">
+            <form action="/createUser" method="POST" enctype="application/x-www-form-urlencoded" name="createUser">
+                <label for="username" class="m-2">Username:</label><br>
+                <input type="text" id="username" name="username" class="m-2 bg-slate-200 border-solid border-gray-600 border-4 rounded-sm"><br>
+
+                <label for="email" class="m-2">Email:</label><br>
+                <input type="text" id="email" name="email" class="m-2 bg-slate-200 border-solid border-gray-600 border-4 rounded-sm"><br>
+
+                <label for="password" class="m-2">Password:</label><br>
+                <input type="password" id="password" name="password" class="m-2 bg-slate-200 border-solid border-gray-600 border-4 rounded-sm"><br>
+
+                <label for="confirmPassword" class="m-2">Confirm Password:</label><br>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="m-2 bg-slate-200 border-solid border-gray-600 border-4 rounded-sm"><br>
+
+                <button type="submit" class="btn w-48 h-8">Submit</button>
+            </form>
+        </div>
+    </section>
+<%- include('partials/footer') -%>

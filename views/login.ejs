@@ -1,0 +1,25 @@
+<%- include('partials/header') -%>
+<div class="columns-2 w-full h-screen">
+    <section class="inline-flex relative flex-col w-full h-screen items-center">
+        <div class="w-fit h-fit my-6 flex-col flex items-start">
+            <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+                <div class=""><span class="text-sky-50"><%= el.msg %></span></div>
+                <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+                messages.info.forEach( el => { %>
+                <div class=""><span class="text-sky-50"><%= el.msg %></span></div>
+            <% }) %> <% } %>
+            <form action="/login" method="POST">
+            <div class="flex">
+                <label for="emailInput" class="m-2">Email address</label>
+                <input type="email" id="emailInput" aria-describedby="emailHelp" name="email" class="m-2 bg-slate-200 border-solid border-gray-600 border-4 rounded-sm"/>
+            </div>
+            <div class="flex">
+                <label for="password" class="m-2">Password</label>
+                <input type="password" id="password" name="password" class="m-2 bg-slate-200 border-solid border-gray-600 border-4 rounded-sm"/>
+            </div>
+            <button type="submit" class="btn mt-2.5">Login</button>
+            </form>
+        </div>
+    </section>
+</div>
+<%- include('partials/footer') -%>

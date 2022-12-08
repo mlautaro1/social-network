@@ -1,0 +1,40 @@
+<%- include('partials/header') -%>
+<div class="columns-2 w-full h-screen">
+    <section class="inline-flex relative flex-col w-full h-screen items-center" id="user-data">
+        <div class="w-fit h-fit my-6 flex-col flex items-start" id="user-data">
+            <div class="flex">
+                <h2 class="text-3xl m-1.5"><%= post.title %></h2>
+            </div>
+            <div class="flex">
+                <img class="img-fluid h-fit w-fit" src="<%= post.image %>" />
+            </div>
+        </div>
+        <div class="w-fit h-fit flex-col flex items-center" id="">
+            <h4 class="text-3xl m-2">Like Post</h4>
+            <div class="w-fit h-fit flex items-center" >
+                    <form class="col-1" action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
+                    <button class="btn" type="submit">Like</button>
+                    </form>
+                    <h5 class="m-2">Likes:
+                        <span><%= post.likes %></span>
+                    </h5>
+                    <%if(post.user == user.id){ %>
+                        <form
+                          action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST" class="">
+                            <button class="btn" type="submit">Delete</button>
+                        </form>
+                    <%}%>
+            </div>
+            <div class="flex">
+                <a class="btn" href="/profile">Return to Profile</a>
+                <a class="btn" href="/feed">Return to Feed</a>
+            </div>  
+        </div>
+    </section>
+    <section class="inline-flex relative flex-col w-full h-3/6 items-start justify-center" id="user-data">
+        <div class="flex">
+            <p><%= post.caption %></p>
+        </div>
+    </section>
+</div>
+<%- include('partials/footer') -%>

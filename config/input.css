@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+      @apply box-border m-0 p-0 bg-sky-900;
+    }
+    h1, h2, h3, h4, h5, p, span, label {
+        @apply text-sky-50 p-0.5 m-0.5;
+    }
+
+}
+
+@layer components {
+    .btn {
+        @apply hover:bg-yellow-200 hover:text-zinc-900 text-sky-50 m-2 p-1 px-2.5 bg-sky-500 border-solid border-sky-50 border rounded-md;
+    }
+    .txt-input, .form-control {
+        @apply m-2 bg-slate-200 border-solid border-gray-600 border-4 rounded-sm
+    }
+}
+
+/*
+
+bg: bg-sky-900
+fonts: text-sky-50
+
+*/

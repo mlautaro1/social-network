@@ -1,0 +1,52 @@
+<%- include('partials/header') -%>
+<div class="columns-2 w-full h-screen">
+    <section class="inline-flex relative flex-col w-full h-screen items-center" id="user-data">
+        <div class="w-fit h-fit my-6 flex-col flex items-start" id="user-data">
+            <!-- username, email, logout -->
+            <div class="flex">
+                <span class="m-1.5">Username: </span>
+                <span class="m-1.5"><%= user %></span>
+            </div>
+            <div>
+                <span class="m-1.5">Email: </span>
+                <span class="m-1.5"><%= email %></span>
+            </div>
+            <a href="/logout"><button type="button" class="btn mt-2.5">Logout</button></a>
+        </div>
+        <div class="w-full h-full flex-col flex items-center" id="add-post-section">
+            <h1 class="text-3xl m-2">Add Post</h1>
+            <div class="w-full h-full flex-col flex items-center" id="form-container">
+                <form action="/post/createPost" enctype="multipart/form-data" method="POST" name="createPost" class="relative flex flex-col w-9/12 h-fit">
+                    <div class="flex" id="post-title">
+                        <label for="postTitle" class="m-1">Title:</label><br>
+                        <input type="text" id="postTitle" name="postTitle" class="txt-input" required><br>
+                    </div>
+                    <div class="flex" id="post-caption">
+                        <label for="imgCaption" class="m-1">Caption:</label><br>
+                        <textarea maxlength="200" name="imgCaption" id="imgCaption" placeholder="Max 200 characters" class="resize-none w-4/5 h-32 bg-slate-200 border-solid border-gray-600 border-4 rounded-md" required></textarea><br>
+                    </div>
+                    <div class="flex" id="post-image">
+                        <label for="imageUpload" class="m-1">Add Image:</label><br>
+                        <input type="file" class="form-control" id="imageUpload" name="file" multiple><br>
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                </form>
+                <a href="/feed"><button type="button" class="btn">Return to feed</button></a>
+            </div>
+        </div>
+    </section>
+    <section class="inline-flex relative flex-col w-full h-full" id="feed-grid">
+        <div class="grid grid-flow-row auto-rows-max">
+            <ul class="row list-unstyled">
+                <% for(var i=0; i<posts.length; i++) {%>
+                  <li class="justify-content-between h-fit w-fit">
+                    <a href="/post/<%= posts[i]._id%>">
+                      <img class="w-fit h-fit" src="<%= posts[i].image%>">
+                    </a>
+                  </li>
+                <% } %>
+                </ul>
+          </div>          
+    </section>
+</div>
+<%- include('partials/footer') -%>
